@@ -1,0 +1,201 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+body {
+    background-color: #0a2a43;
+    min-height: 1500px;
+}
+
+.container {
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, #0a2a43, transparent);
+    z-index: 10000;
+}
+
+section:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:  #0a2a43;
+    z-index: 10000;
+    mix-blend-mode: color;
+}
+
+section img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+.profile-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#text {
+    position: relative;
+    color: #fff;
+    font-size: 5rem;
+    z-index: 1;
+    text-align: center;
+}
+
+#text span {
+    font-size: 2rem;
+}
+
+#button {
+    z-index: 10001;
+    cursor: pointer;
+    position: relative;
+    padding: 20px 10px;
+    background-color: transparent;
+    color: #fff;
+    font-weight: 500;
+    font-size: 2rem;
+    opacity: 0.4;
+    transition: 0.5s;
+}
+
+#button:hover {
+    opacity: 1;
+}
+
+#button:active {
+    border-style: unset;
+}
+#road {
+    z-index: 2;
+}
+
+#circle {
+    width: 200px;
+    height: 200px;
+    margin: 40px;
+    border-radius: 50%;
+    border: 1px solid #4CAF50;
+}
+
+#circle-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
+}
+
+.box {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 30px;
+    box-shadow: 0 30px 60px rgba(0,0,0,.2);
+    transition: transform 1s;
+}
+
+.box:hover {
+    -ms-transform: scale(1.5); /* IE 9 */
+    -webkit-transform: scale(1.5); /* Safari 3-8 */
+    transform: scale(1.2); 
+  }
+
+.box .percent {
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+
+.box .percent svg {
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+
+.box .percent svg circle {
+    width: 150px;
+    height: 150px;
+    fill: none;
+    stroke-width: 10;
+    stroke: #000;
+    transform: translate(5px, 5px);
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.box .percent svg circle:nth-child(1) {
+    stroke: #f3f3f3;
+}
+
+.box .percent svg circle:nth-child(2) {
+    stroke: #03a9f4;
+}
+.box .percent:hover svg circle {
+    animation: dash 2s linear forwards;
+}
+
+@keyframes dash {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+.box .percent .number {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #999;
+}
+
+.box .percent .number h2 {
+    font-size: 24px;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.box .percent .number h2:hover {
+    color: rgb(102, 247, 138);
+}
